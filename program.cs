@@ -1,25 +1,25 @@
 string[] ArrWithCondition(string[] srtrigsArray, int controlLength)
 {
-    int stringLength = 0;
-    string newString = string.Empty;
+  int stringLength = 0;
+  string newString = string.Empty;
 
-    for (int i = 0; i < srtrigsArray.Length; i++)
+  for (int i = 0; i < srtrigsArray.Length; i++)
+  {
+    stringLength = srtrigsArray[i].Length;
+    if (stringLength <= controlLength)
     {
-        stringLength = srtrigsArray[i].Length;
-        if (stringLength <= controlLength)
-        {
-            if (newString == "") // проверка на первый элемент - чтобы не начинать newString с разделителя
-            {
-                newString = srtrigsArray[i];
-            }
-            else
-            {
-                newString = newString + "|" + srtrigsArray[i]; // можно "подобрать" уникальный разделитель при понимании с какими строками придется работать
-            }
-        }
+      if (newString == "") // чтобы не начинать newString с разделителя использовать проверку на первый элемент
+      {
+        newString = srtrigsArray[i];
+      }
+      else
+      {
+        newString = newString + "|" + srtrigsArray[i]; // можно "подобрать" уникальный разделитель при понимании с какими строками придется работать
+      }
     }
-    string[] newArrWithCond = newString.Split('|');
-    return newArrWithCond;
+  }
+  string[] newArrWithCond = newString.Split('|');
+  return newArrWithCond;
 }
 
 
